@@ -1,0 +1,14 @@
+{% extends 'polls/navbar.html' %}
+
+{% block content %}
+<h1 align="center" >Voting results</h1>
+<h3 align="center" style="margin-left: 10px">{{ question.question_text }}</h3>
+<div style="position: absolute; top: 25%; left: 40%">
+    <ul>
+    {% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+    {% endfor %}
+    </ul>
+    <p><a href="{% url 'polls:detail' question.id %}" style="margin-top: 30px; margin-left: 30px">Vote again?</a></p>
+</div>
+{% endblock %}

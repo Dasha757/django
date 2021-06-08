@@ -1,0 +1,33 @@
+{% extends 'polls/navbar.html' %}
+{% block content %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<div class="container" style="position: absolute; top:15%; left:10%">
+    <div class="row align-items-start">
+        <div class="col">
+            <h1 align="center">
+                {{ blog.title }}
+            </h1>
+            <big><big>{{ blog.content }}</big></big>
+            <br>
+            <p style="color:red">
+                Published date: {{ blog.pub_date }}
+
+        </div>
+        <div class="col" style="overflow: hidden">
+            <p><img src="{{ blog.image.url }}" height="100%" width="100%"></p>
+
+        </div>
+    </div>
+</div>
+<div style="position:absolute; top: 70%; left: 15%">
+    <button class="btn btn-danger" style="width:150px"
+            onclick="document.location='../../blogs/{{ blog.id }}/blog_delete/'">Delete
+    </button>
+    <i class="px-2"></i>
+    <button class="btn btn-warning" style="width:150px"
+            onclick="document.location='../../blogs/{{ blog.id }}/blog_update/'">Update
+    </button>
+</div>
+{% endblock %}

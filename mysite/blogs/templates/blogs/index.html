@@ -1,0 +1,24 @@
+{% extends 'polls/navbar.html' %}
+
+{% block content %}
+{% if latest_blog_list %}
+<h1 align="center" class="p-2 ">Blogs
+    <p><a class="btn btn-warning btn-sm btn-lg"
+          onclick="document.location='../../blogs/create'">Create blog</a></p></h1>
+<div style="position:absolute; top:25%; left:37%">
+    <ul>
+    {% for blog in latest_blog_list %}
+        <li>
+            <a href="{% url 'blogs:detail' blog.id %}">{{ blog.title }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+{% else %}
+<h1 align="center">Blogs</h1>
+<h4 align="center" style="margin: 10px">No blog available
+<p><a class="btn btn-warning btn-sm btn-lg"
+               onclick="document.location='../../blogs/create'">Create blog</a></p></h4>
+{% endif %}
+
+{% endblock %}

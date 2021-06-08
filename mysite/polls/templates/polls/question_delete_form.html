@@ -1,0 +1,11 @@
+{% extends 'polls/navbar.html' %}
+
+{% block content %}
+<h1 align="center">Deleting a question</h1><br>
+<h4 align="center" class="p-2">Delete a question?</h4>
+<form align="center" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit" style="width: 100px">Yes</button>
+</form>
+
+{% endblock %}

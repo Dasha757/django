@@ -1,0 +1,12 @@
+{% extends 'polls/navbar.html' %}
+
+{% block content %}
+
+<h2 align="center">Creating a question</h2>
+<form align="center" style="margin-top: 40px" action="{% url 'polls:create' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-primary btn-sm btn-warning" type="submit" value="Create"/>
+</form>
+
+{% endblock %}
